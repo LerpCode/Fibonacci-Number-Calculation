@@ -189,7 +189,7 @@ BigInt fibonacci(BigInt n) {
         fib_next = fib_curr;
     }
 
-    return fib_current;
+    return fib_curr;
 }
 
 int main() {
