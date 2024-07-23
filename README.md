@@ -91,7 +91,7 @@ bool operator < (BigInt a, BigInt b) {
 3. [Dynamic Programming - Bottom-Up Approach](#dynamic-programming---bottom-up-approach)
 4. [Iterative Approach](#iterative-approach)
 5. [Matrix Exponentiation - Fast Exponentation](#matrix-exponentiation)
-6. [Using Binet's Formula](#using-binets-formula)
+6. [Binet's Formula](#using-binets-formula)
 
 ---
 
