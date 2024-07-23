@@ -92,6 +92,7 @@ bool operator < (BigInt a, BigInt b) {
 4. [Iterative Approach](#iterative-approach)
 5. [Matrix Exponentiation - Fast Exponentation](#matrix-exponentiation)
 6. [Binet's Formula](#using-binets-formula)
+7. [Using Binet's Formula - Fast Exponentation](#using-binets-formula-fastexp)
 
 ---
 
@@ -145,7 +146,7 @@ int main() {
 ```
 _____
 ### Dynamic Programming - Bottom-Up Approach
-The bottom-up approach for calculating Fibonacci numbers involves iteratively computing each Fibonacci number from the ground up, starting from the base cases and building up to the desired value. This method is efficient and avoids the overhead of recursive calls.The complexity of this program $O(n)$ 
+The bottom-up approach for calculating Fibonacci numbers involves iteratively computing each Fibonacci number from the ground up, starting from the base cases and building up to the desired value. This method is efficient and avoids the overhead of recursive calls.The complexity of this program $O(n)$ .
 
 ```cpp
 #include <iostream>
@@ -319,6 +320,54 @@ int main() {
 }
 ```
 ____
+### Using Binet's Formula - Fast Exponentation
+This is another efficient way to solve this problem. Using fast exponentation, the time complexity of this program is $O(logn)$.
+```cpp
+#include <iostream>
+using namespace std;
+
+
+typedef cpp_dec_float_50 float50;
+typedef cpp_int BigInt;
+
+float50 fast_exp(float50 base, int exp) {
+    float50 result = 1;
+    while (exp > 0) {
+        if (exp % 2 == 1)
+            result *= base;
+        base *= base;
+        exp /= 2;
+    }
+    return result;
+}
+
+BigInt fibonacci_binet(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    
+    float50 sqrt5 = sqrt(float50(5));
+    float50 phi = (1 + sqrt5) / 2;
+    float50 psi = (1 - sqrt5) / 2;
+
+    float50 phi_n = fast_exp(phi, n);
+    float50 psi_n = fast_exp(psi, n);
+
+    float50 fib_n = (phi_n - psi_n) / sqrt5;
+
+    BigInt result = fib_n.convert_to<BigInt>();
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    cout << result = fibonacci_binet(n);
+
+    return 0;
+}
+
+```
 ## Source:
 
 BigInt: https://vietcodes.github.io/code/78/index.html
