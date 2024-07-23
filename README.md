@@ -104,7 +104,7 @@ The simplest way to calculate Fibonacci numbers, but inefficient for large `n` d
 #include <iostream>
 using namespace std;
 
-BigInt fibonacci(int n) {
+BigInt fibonacci(BigInt n) {
     if (n <= 1) return n;
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
@@ -230,7 +230,7 @@ using namespace std;
 typedef vector<vector<BigInt>> Matrix;
 
 Matrix multiply(Matrix A, Matrix B) {
-    int n = A.size();
+    BigInt n = A.size();
     Matrix C(n, vector<BigInt>(n, BigInt("0")));
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
