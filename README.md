@@ -327,9 +327,6 @@ This is another efficient way to solve this problem. Using fast exponentation, t
 using namespace std;
 
 
-
-typedef cpp_int BigInt;
-
 BigInt fast_exp(BigInt base, BigInt exp) {
     BigInt result = 1;
     while (exp) {
