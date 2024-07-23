@@ -92,7 +92,7 @@ bool operator < (BigInt a, BigInt b) {
 4. [Iterative Approach](#iterative-approach)
 5. [Matrix Exponentiation - Fast Exponentation](#matrix-exponentiation)
 6. [Binet's Formula](#using-binets-formula)
-7. [Using Binet's Formula - Fast Exponentation](#using-binets-formula-fastexp)
+7. [Binet's Formula - Fast Exponentation](#using-binets-formula-fastexp)
 
 ---
 
@@ -320,7 +320,7 @@ int main() {
 }
 ```
 ____
-### Using Binet's Formula - Fast Exponentation
+### Binet's Formula - Fast Exponentation
 This is another efficient way to solve this problem. Using fast exponentation, the time complexity of this program is $O(logn)$.
 ```cpp
 #include <iostream>
