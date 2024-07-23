@@ -106,7 +106,7 @@ The simplest way to calculate Fibonacci numbers, but inefficient for large `n` d
 using namespace std;
 
 BigInt fibonacci(BigInt n) {
-    if (n <= 1) return n;
+    if (n <= 1) return BigInt(n);
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
@@ -129,7 +129,7 @@ Memoization is a dynamic programming technique that speeds up recursive algorith
 using namespace std;
 
 BigInt fibonacci(BigInt n, vector<BigInt>& memo) {
-    if (n <= 1) return n;
+    if (n <= 1) return BigInt(n);
     if (memo[n] != -1) return memo[n];
     memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
     return memo[n];
@@ -155,7 +155,7 @@ The bottom-up approach for calculating Fibonacci numbers involves iteratively co
 using namespace std;
 
 BigInt fibonacci(BigInt n) {
-    if (n <= 1) return n;
+    if (n <= 1) return BigInt(n);
     vector<BigInt> dp(n + 1);
     dp[0] = 0;
     dp[1] = 1;
@@ -178,9 +178,7 @@ An iterative approach solves a problem by repeatedly applying a set of steps unt
 ```cpp
 #include <iostream>
 BigInt fibonacci(BigInt n) {
-    if (n <= 1) {
-        return BigInt(n);
-    }
+    if (n <= 1) return BigInt(n);
 
     BigInt fib_prev(0), fib_next(1), fib_curr;
 
@@ -261,8 +259,7 @@ Matrix power(Matrix M, BigInt p) {
 }
 
 BigInt fibonacci(int n) {
-    if (n == 0) return BigInt("0");
-    if (n == 1) return BigInt("1");
+    if(n <= 1) return BigInt(n);
 
     Matrix F = {{BigInt("1"), BigInt("1")}, {BigInt("1"), BigInt("0")}};
     Matrix result = power(F, n - 1);
@@ -297,9 +294,7 @@ Binet's Formula computes Fibonacci numbers directly using a closed-form expressi
 using namespace std;
 
 BigInt binetFibonacci(int n) {
-    if (n < 0) return BigInt("0");
-    if (n == 0) return BigInt("0");
-    if (n == 1) return BigInt("1");
+    if(n <= 1) return BigInt(n);
 
     double phi = (1 + sqrt(5)) / 2.0;
     double psi = (1 - sqrt(5)) / 2.0;
@@ -339,8 +334,7 @@ BigInt fast_exp(BigInt base, BigInt exp) {
 }
 
 BigInt fibonacci_binet(BigInt n) {
-    if (n == 0) return BigInt("0");
-    if (n == 1) return BigInt("1");
+    if(n <= 1) return BigInt(n);
     
     BigInt sqrt5 = sqrt(float50(5));
     BigInt phi = (1 + sqrt5) / 2;
