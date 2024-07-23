@@ -255,7 +255,7 @@ Matrix power(Matrix M, BigInt p) {
             result = multiply(result, M);
         }
         M = multiply(M, M);
-        p /= 2;
+        p >>= 1;
     }
     return result;
 }
@@ -327,42 +327,42 @@ This is another efficient way to solve this problem. Using fast exponentation, t
 using namespace std;
 
 
-typedef cpp_dec_float_50 float50;
+
 typedef cpp_int BigInt;
 
-float50 fast_exp(float50 base, int exp) {
-    float50 result = 1;
-    while (exp > 0) {
+BigInt fast_exp(BigInt base, BigInt exp) {
+    BigInt result = 1;
+    while (exp) {
         if (exp % 2 == 1)
             result *= base;
         base *= base;
-        exp /= 2;
+        exp >>= 1;
     }
     return result;
 }
 
-BigInt fibonacci_binet(int n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
+BigInt fibonacci_binet(BigInt n) {
+    if (n == 0) return BigInt("0");
+    if (n == 1) return BigInt("1");
     
-    float50 sqrt5 = sqrt(float50(5));
-    float50 phi = (1 + sqrt5) / 2;
-    float50 psi = (1 - sqrt5) / 2;
+    BigInt sqrt5 = sqrt(float50(5));
+    BigInt phi = (1 + sqrt5) / 2;
+    BigInt psi = (1 - sqrt5) / 2;
 
-    float50 phi_n = fast_exp(phi, n);
-    float50 psi_n = fast_exp(psi, n);
+    BigInt phi_n = fast_exp(phi, n);
+    BigInt psi_n = fast_exp(psi, n);
 
-    float50 fib_n = (phi_n - psi_n) / sqrt5;
+    BigInt fib_n = (phi_n - psi_n) / sqrt5;
 
     BigInt result = fib_n.convert_to<BigInt>();
     return result;
 }
 
 int main() {
-    int n;
+    BigInt n;
     cin >> n;
 
-    cout << result = fibonacci_binet(n);
+    cout << fibonacci_binet(n);
 
     return 0;
 }
