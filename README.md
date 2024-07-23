@@ -231,9 +231,9 @@ typedef vector<vector<BigInt>> Matrix;
 Matrix multiply(Matrix A, Matrix B) {
     BigInt n = A.size();
     Matrix C(n, vector<BigInt>(n, BigInt("0")));
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            for (int k = 0; k < n; ++k) {
+    for (BigInt i = 0; i < n; ++i) {
+        for (BigInt j = 0; j < n; ++j) {
+            for (BigInt k = 0; k < n; ++k) {
                 C[i][j] = C[i][j] + A[i][k] * B[k][j];
             }
         }
@@ -244,12 +244,12 @@ Matrix multiply(Matrix A, Matrix B) {
 Matrix power(Matrix M, BigInt p) {
     BigInt n = M.size();
     Matrix result(n, vector<BigInt>(n, BigInt("0")));
-    for (int i = 0; i < n; ++i) {
+    for (BigInt i = 0; i < n; ++i) {
         result[i][i] = BigInt("1");
     }
 
     while (p > 0) {
-        if (p % 2 == 1) {
+        if (p & 1) {
             result = multiply(result, M);
         }
         M = multiply(M, M);
@@ -325,7 +325,7 @@ using namespace std;
 BigInt fast_exp(BigInt base, BigInt exp) {
     BigInt result = 1;
     while (exp) {
-        if (exp % 2 == 1)
+        if (exp & 1)
             result *= base;
         base *= base;
         exp >>= 1;
