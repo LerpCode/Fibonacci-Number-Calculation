@@ -1,13 +1,13 @@
 # Fibonacci Number Calculation
 
 
-This repository contains various methods to calculate the nth Fibonacci number using C++. Considered using bignum.
+This repository contains various methods to calculate the nth Fibonacci number using C++. Considered using bigInt.
 
 
 Written by Lap Nguyen.
 
 <details>
-<summary><span style="font-size: 24px">Demonstration of big num:</span></summary>
+<summary><span style="font-size: 24px">Demonstration of bigInt:</span></summary>
 
 ```c++
 #include <vector>
