@@ -365,4 +365,4 @@ BigInt: https://vietcodes.github.io/code/78/index.html
 
 ## MIT License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
